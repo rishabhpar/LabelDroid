@@ -1,0 +1,30 @@
+data_root = "Accessibility_Dataset"
+
+split = ["train", "val", "test"]
+
+annotations/annotation_{split}.json
+
+
+{'info':
+       {'description:"Accessbility dataset"},
+ 'images':[
+           {
+            "id":int,
+            "filename": "{split}/{id}.png",
+            "width":int,
+            "height":int,
+            "category":str
+            },
+            {...},
+            ...
+           ]
+  'annotations':[
+                 {'id':int,
+                  'image_id':int,
+                  'caption':str,
+                  'category':str
+                 },
+                 {...},
+                 ...
+                 ]
+}
