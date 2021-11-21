@@ -192,13 +192,13 @@ def main(args):
 			else:		
 				optim_state_dict = optimizer.state_dict()
 
-			torch.save({'epoch':epoch,
-				    'decoder_state_dict':decoder.state_dict(),
-				    'encoder_state_dict':encoder.state_dict(),
-				    'optimizer':optim_state_dict,
-				    'iteration':iteration, 
-				    args.score_select:score,
-				    }, save_path)
+# 			torch.save({'epoch':epoch,
+# 				    'decoder_state_dict':decoder.state_dict(),
+# 				    'encoder_state_dict':encoder.state_dict(),
+# 				    'optimizer':optim_state_dict,
+# 				    'iteration':iteration, 
+# 				    args.score_select:score,
+# 				    }, save_path)
 			bestiter = iteration
 		for metric, value in scores[0].items():
 			writer.add_scalar("val/{}".format(metric), value, epoch)
@@ -206,8 +206,8 @@ def main(args):
 			bestscore = score
 			print(('[DEBUG] Saving model at epoch %d with %s score of %f'\
 				% (epoch, args.score_select, score)))
-			bestmodel_path = os.path.join(args.model_path, 'best_model.ckpt')
-			os.system('cp %s %s' % (save_path, bestmodel_path))
+# 			bestmodel_path = os.path.join(args.model_path, 'best_model.ckpt')
+# 			os.system('cp %s %s' % (save_path, bestmodel_path))
 		
 	# Run on validation and obtain score
 	scores = test(args, 'val', encoder=encoder, decoder=decoder) 
